@@ -24,6 +24,9 @@
         <div class="alert alert-danger alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <i class="fa fa-info-circle"></i>  <strong>警告！</strong> 請修正表單錯誤：
+            @foreach($errors‐>all()as$error)
+                <li>{{$error}}</li>
+            @endforeach
         </div>
     </div>
 </div>
@@ -51,7 +54,7 @@ $post->content) }}</textarea>
                 <label for=" is_feature ">精選？</label>
                 <select id=" is_feature " name="is_feature" class="form-control">
                     <option value="0" {{ (!$post->is_feature)? ' selected' : '' }}>否</option>
-                    <option value="1" {{ (!$post->is_feature)? ' selected' : '' }}>是</option>
+                    <option value="1" {{ ($post->is_feature)? ' selected' : '' }}>是</option>
                 </select>
             </div>
 
